@@ -236,8 +236,8 @@
 		 '{ "Sl_No": "26" ,    "Date": "Apr 18, 2023"  , 	"Day": "Tuesday"	, 	    	"Suhoor": "03:51"  ,   "Iftar1": "06:03" ,	"Iftar": "18:03" ,   "Duration": "" ,   "pic":"ramadan-day-26.png"	,	    "hadith":"Worshipping Allah in Lailatul Qadr night is better than worshipping Him a thousand months, i.e. 83 years and 4 months.Therein descend the angels and the Rooh [Jibreel (Gabriel)] by Allah Permission with all Decrees, (all that night), there is peace (and goodness from Allah to His believing slaves) until the appearance of dawn"},' +
 		 '{ "Sl_No": "27" ,    "Date": "Apr 19, 2023" , 	"Day": "Wednesday"	, 	  	    "Suhoor": "03:50"  ,   "Iftar1": "06:03" ,	"Iftar": "18:03" ,   "Duration": "" ,   "pic":"ramadan-day-27.png"	,	    "hadith":"The Prophet (pbuh) said:In every day and every night, during the month of Ramadan, there are people to whom Allah grants freedom from the Fire, and there is for every Muslim a supplication which he can make and will be granted."},' +
 		 '{ "Sl_No": "28" ,    "Date": "Apr 20, 2023" , 	"Day": "Thursday"	,  	  	    "Suhoor": "03:49"  ,   "Iftar1": "06:03" ,	"Iftar": "18:03" ,   "Duration": "" ,   "pic":"ramadan-day-28.png"	,	    "hadith":"Prophet (PBUH), who said: Allah (mighty and sublime be He) said: Spend (on charity), O son of Adam, and I shall spend on you."},' +
-		 '{ "Sl_No": "29" ,    "Date": "May 21, 2023" , 	"Day": "Friday"		, 		  	"Suhoor": "03:48"  ,   "Iftar1": "06:04" ,	"Iftar": "18:04" ,   "Duration": "" ,   "pic":"ramadan-day-29.png"	,	    "hadith":"Prophet (peace and blessings be upon him) said,Whosoever fasts in Ramadan and then follows it with fasting six days of Shawwal, it is as if he fasts forever. (Muslim)"},'+
-		 '{ "Sl_No": "30" ,    "Date": "May 22, 2023" , 	"Day": "Saturday"	,  	   	 	"Suhoor": "03:47"  ,   "Iftar1": "06:04" ,	"Iftar": "18:04" ,   "Duration": "" ,   "pic":"ramadan-day-30.png"	,		"hadith":"Anas bin Maalik (r.a) said: The Messenger of Allah (pbuh) came to Madinah and the people had two days when they would play and have fun. He said, What are these two days? They said,We used to play and have fun on these days during the Jaahiliyyah(Days of Ignorance).The Messenger of Allah (pbuh) said,Allah has given you something better than them, the day of (Eid) Adhaa and the day of (Eid) Fitr."}]';
+		 '{ "Sl_No": "29" ,    "Date": "Apr 21, 2023" , 	"Day": "Friday"		, 		  	"Suhoor": "03:48"  ,   "Iftar1": "06:04" ,	"Iftar": "18:04" ,   "Duration": "" ,   "pic":"ramadan-day-29.png"	,	    "hadith":"Prophet (peace and blessings be upon him) said,Whosoever fasts in Ramadan and then follows it with fasting six days of Shawwal, it is as if he fasts forever. (Muslim)"},'+
+		 '{ "Sl_No": "30" ,    "Date": "Apr 22, 2023" , 	"Day": "Saturday"	,  	   	 	"Suhoor": "03:47"  ,   "Iftar1": "06:04" ,	"Iftar": "18:04" ,   "Duration": "" ,   "pic":"ramadan-day-30.png"	,		"hadith":"Anas bin Maalik (r.a) said: The Messenger of Allah (pbuh) came to Madinah and the people had two days when they would play and have fun. He said, What are these two days? They said,We used to play and have fun on these days during the Jaahiliyyah(Days of Ignorance).The Messenger of Allah (pbuh) said,Allah has given you something better than them, the day of (Eid) Adhaa and the day of (Eid) Fitr."}]';
 																										
 		 data = JSON.parse(text);
 		
@@ -245,15 +245,15 @@
 		var month = dateObj.getUTCMonth() + 1; //months from 1-12
 		var day = dateObj.getUTCDate();
 		var year = dateObj.getUTCFullYear();
-		if (month == 4){
-			month = 'Apr';
+		if (month == 3){
+			month = 'Mar';
 		}else{
-			month = 'May';
+			month = 'Apr';
 		}
 		var newdate = month + " " + day + ", "+ year;
 		//var newdate = "May 22, 2023";
 
-		if(newdate == "May 23, 2023"){
+		if(newdate == "Apr 23, 2023"){
 					window.location = "eid_mobile.html";
 		}
 		
