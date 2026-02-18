@@ -2,139 +2,267 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ramadan Timetable 2026 Kolkata</title>
+<title>Ramadan 2026 - Kolkata</title>
 
 <style>
 body{
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom,#0b1330,#1a214a);
-    color:white;
-    text-align:center;
-    overflow-x:hidden;
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(to bottom,#0d1235,#1a1f4a);
+color:white;
+text-align:center;
+transition:background 1.5s ease;
+overflow-x:hidden;
 }
 
-/* ===== STARS BACKGROUND ===== */
-.stars{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:
-        radial-gradient(2px 2px at 20% 30%, white, transparent),
-        radial-gradient(2px 2px at 70% 60%, white, transparent),
-        radial-gradient(1px 1px at 40% 80%, white, transparent),
-        radial-gradient(1px 1px at 90% 20%, white, transparent);
-    animation: twinkle 4s infinite alternate;
-    z-index:-1;
+.container{
+max-width:390px;
+margin:auto;
+padding:20px 15px 60px;
+position:relative;
 }
+
+/* ===== STAR PARTICLES ===== */
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+opacity:.6;
+animation:twinkle 3s infinite alternate;
+}
+
 @keyframes twinkle{
-    from{opacity:.4}
-    to{opacity:1}
+from{opacity:.2}
+to{opacity:1}
 }
 
 /* ===== HEADER ===== */
-.location{ margin-top:20px; font-size:14px; opacity:.8;}
-.day{ font-size:26px; font-weight:600; margin-top:5px;}
-.islamic{ font-size:14px; opacity:.7;}
+.calligraphy{
+font-size:34px;
+margin-top:15px;
+}
+
+h2{margin:6px 0 4px;font-weight:500}
+
+/* ===== PROGRESS BAR ===== */
+.progress-wrapper{
+width:100%;
+background:rgba(255,255,255,.1);
+height:8px;
+border-radius:10px;
+margin:12px 0 20px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+background:linear-gradient(90deg,#00ffcc,#00ff88);
+width:0%;
+transition:width 1s ease;
+}
 
 /* ===== ARC ===== */
 .arc-container{
-    position:relative;
-    width:320px;
-    height:200px;
-    margin:20px auto;
+position:relative;
+width:260px;
+height:160px;
+margin:20px auto 5px;
 }
-svg{ width:100%; height:100%; }
+svg{width:100%;height:100%}
 
 .progress-arc{
-    stroke:white;
-    stroke-width:6;
-    fill:none;
-    stroke-linecap:round;
-    filter: drop-shadow(0 0 6px white);
-    transition: stroke-dashoffset 1s linear;
+stroke:white;
+stroke-width:5;
+fill:none;
+stroke-linecap:round;
+filter:drop-shadow(0 0 8px rgba(255,255,255,0.6));
 }
+
 .bg-arc{
-    stroke:#ffffff20;
-    stroke-width:6;
-    fill:none;
+stroke:#ffffff25;
+stroke-width:5;
+fill:none;
 }
 
 .center-time{
-    position:absolute;
-    top:80px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:28px;
+position:absolute;
+top:60px;
+left:50%;
+transform:translateX(-50%);
+font-size:26px;
+font-weight:500;
+}
+
+.icon{
+position:absolute;
+width:18px;
+height:18px;
+border-radius:50%;
+}
+
+.sun{
+background:radial-gradient(circle,yellow 40%,orange 70%);
+box-shadow:0 0 15px orange;
 }
 
 .moon{
-    position:absolute;
-    width:18px;
-    height:18px;
-    background:white;
-    border-radius:50%;
-    box-shadow:0 0 10px white;
-    top:130px;
-    left:20px;
+background:white;
+box-shadow:0 0 12px white;
 }
 
-/* ===== COUNTDOWN ===== */
-.next-label{ letter-spacing:3px; font-size:12px; opacity:.7;}
-.countdown{ font-size:42px; margin-top:10px;}
-.units{ display:flex; justify-content:center; gap:60px; font-size:12px; opacity:.5;}
+.next-label{
+letter-spacing:3px;
+font-size:12px;
+opacity:.7;
+margin-top:5px;
+}
 
-/* ===== TODAY INFO ===== */
-.today-info{ margin-top:15px; line-height:25px;}
+.countdown{
+font-size:42px;
+margin-top:8px;
+}
+
+/* ===== GLASS CARD ===== */
+.bottom-card{
+margin:25px auto 5px;
+padding:16px 12px;
+border-radius:22px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 8px 30px rgba(0,0,0,0.4);
+animation:floatCard 5s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+0%,100%{transform:translateY(0px);}
+50%{transform:translateY(-4px);}
+}
+
+.bottom-item{
+flex:1;
+text-align:center;
+}
+
+.bottom-small{
+font-size:13px;
+opacity:.7;
+}
+
+.bottom-time{
+font-size:20px;
+margin-top:4px;
+font-weight:600;
+}
+
+.status-dot{
+width:7px;
+height:7px;
+border-radius:50%;
+margin:0 auto 6px;
+background:#aaa;
+transition:all .3s ease;
+}
+
+.status-dot.fasting{
+background:#00ff88;
+box-shadow:0 0 10px #00ff88;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.3);}
+100%{transform:scale(1);}
+}
+
+.status-text{
+font-size:14px;
+opacity:.85;
+}
+
+/* ===== CONTACT ===== */
+.contact{
+margin-top:40px;
+padding:25px 15px;
+background:#f4f4f4;
+color:black;
+border-radius:20px;
+}
+
+.contact a{
+text-decoration:none;
+font-weight:bold;
+}
+
+.whatsapp-icon{
+width:22px;
+vertical-align:middle;
+margin-right:6px;
+}
 
 /* ===== TABLE ===== */
 table{
-    width:95%;
-    margin:40px auto;
-    border-collapse: collapse;
-    background:white;
-    color:black;
-    font-size:14px;
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+background:white;
+color:black;
+font-size:13px;
+border-radius:10px;
+overflow:hidden;
 }
-th,td{ padding:8px; border:1px solid #ccc;}
-th{ background:#2c5364; color:white;}
-tr:nth-child(even){ background:#f2f2f2;}
-.highlight{ background:#333 !important; color:yellow !important;}
-
-/* ===== MOBILE IMPROVE ===== */
-@media(max-width:480px){
-    .arc-container{ width:280px;}
-    .countdown{ font-size:34px;}
-}
+th,td{padding:7px;border:1px solid #ccc}
+th{background:#2c5364;color:white}
+tr:nth-child(even){background:#f2f2f2}
+.highlight{background:#333!important;color:yellow!important}
 </style>
 </head>
 
 <body>
 
-<div class="stars"></div>
+<div class="container" id="container">
 
-<div class="location">🌙 Kolkata, West Bengal</div>
-<div class="day" id="dayNumber"></div>
-<div class="islamic" id="islamicDate"></div>
+<div class="calligraphy">﷽</div>
+<h2 id="dayTitle"></h2>
+
+<div class="progress-wrapper">
+<div class="progress-bar" id="ramadanProgress"></div>
+</div>
 
 <div class="arc-container">
-    <svg viewBox="0 0 320 160">
-        <path d="M20 140 A140 140 0 0 1 300 140" class="bg-arc"/>
-        <path id="progressArc"
-              d="M20 140 A140 140 0 0 1 300 140"
-              class="progress-arc"/>
-    </svg>
-    <div class="center-time" id="currentTime"></div>
-    <div class="moon" id="moon"></div>
+<svg viewBox="0 0 320 160">
+<path d="M20 140 A140 140 0 0 1 300 140" class="bg-arc"/>
+<path id="progressArc"
+d="M20 140 A140 140 0 0 1 300 140"
+class="progress-arc"/>
+</svg>
+
+<div class="center-time" id="currentTime"></div>
+<div id="movingIcon" class="icon"></div>
 </div>
 
 <div class="next-label" id="nextLabel"></div>
 <div class="countdown" id="countdownTime"></div>
-<div class="units"><div>H</div><div>M</div><div>S</div></div>
 
-<div class="today-info">
-    <div id="todaySuhoor"></div>
-    <div id="todayIftar"></div>
+<div class="bottom-card">
+<div class="bottom-item">
+<div class="bottom-small">Suhoor ends</div>
+<div class="bottom-time" id="suhoorDisplay"></div>
+</div>
+
+<div class="bottom-item">
+<div class="status-dot" id="statusDot"></div>
+<div class="status-text" id="fastingStatus">Not Fasting</div>
+</div>
+
+<div class="bottom-item">
+<div class="bottom-small">Iftar at</div>
+<div class="bottom-time" id="iftarDisplay"></div>
+</div>
 </div>
 
 <h3>Full Timetable</h3>
@@ -146,15 +274,39 @@ tr:nth-child(even){ background:#f2f2f2;}
 <th>Date</th>
 <th>Suhoor</th>
 <th>Iftar</th>
-<th>Duration</th>
 </tr>
 </thead>
 <tbody id="timetableBody"></tbody>
 </table>
 
+<!-- CONTACT -->
+<div class="contact">
+<h3>Duaon ka Taalib :</h3>
+<p><b>Md Irshad Ali</b></p>
+
+<p>
+<a href="https://wa.me/919804452637" target="_blank" style="color:green;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+class="whatsapp-icon">
+9804452637
+</a>
+</p>
+
+<p>
+<a href="mailto:mdirshadali96@gmail.com"
+style="color:#d14836;">
+📧 mdirshadali96@gmail.com
+</a>
+</p>
+</div>
+
+</div>
+
+<audio id="azanAudio" src="https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3"></audio>
+
 <script>
 
-/* ===== DATA (shortened here — use your full array) ===== */
+/* USE YOUR FULL 30-DAY DATA ARRAY */
 const data = [
 		 { "Sl_No": "1"  ,    "Date": "Feb 18, 2026" ,			"Day": "Thursday"		,  	  	   	"Suhoor": "04:51"  ,   "Iftar1": "05:36" ,	"Iftar": "17:36" ,   "Duration": "" ,   "pic":"ramadan-day-1.jpg"	,		"hadith":"The Messenger of Allah(pbuh), said, On the first night of the month of Ramadan, the devils are chained, the jinn are restrained, and the gates of Hellfire are closed and none of its gates are opened. The gates of Paradise are opened and none of its gates are closed. "},
 		 { "Sl_No": "2"  ,    "Date": "Feb 20, 2026" ,			"Day": "Friday"			, 	  	   	"Suhoor": "04:50"  ,   "Iftar1": "05:36" ,	"Iftar": "17:36" ,   "Duration": "" ,   "pic":"ramadan-day-2.jpg"	,		"hadith":"Imam Jafar Sadiq (as) has said, Your fast day should not be like other ordinary days. When you fast, all your sense - eyes, ears, tongue, hands and feet - must fast with you"},
@@ -182,88 +334,117 @@ const data = [
 		 { "Sl_No": "24" ,    "Date": "Mar 14, 2026"  , 		"Day": "Saturday"	,     	    	"Suhoor": "04:32"  ,   "Iftar1": "05:46" ,	"Iftar": "17:46" ,   "Duration": "" ,   "pic":"ramadan-day-24.png"	,	    "hadith":"The Messenger of Allah(pbuh) said, Every slave of Allah who observes Saum (fasting) for one day for the sake of Allah, Allah will draw his face farther from Hell-fire to the extent of a distance to be covered in seventy years."},
 		 { "Sl_No": "25" ,    "Date": "Mar 15, 2026"  , 		"Day": "Sunday"		,  		    	"Suhoor": "04:31"  ,   "Iftar1": "05:46" ,	"Iftar": "17:46" ,   "Duration": "" ,   "pic":"ramadan-day-25.png"	,	    "hadith":"Narrated Aisha: With the start of the last ten days of Ramadan, the Prophet used to tighten his waist belt (i.e. work hard) and used to pray all the night, and used to keep his family awake for the prayers."},
 		 { "Sl_No": "26" ,    "Date": "Mar 16, 2026"  , 		"Day": "Monday"		, 	    		"Suhoor": "04:30"  ,   "Iftar1": "05:46" ,	"Iftar": "17:46" ,   "Duration": "" ,   "pic":"ramadan-day-26.png"	,	    "hadith":"Worshipping Allah in Lailatul Qadr night is better than worshipping Him a thousand months, i.e. 83 years and 4 months.Therein descend the angels and the Rooh [Jibreel (Gabriel)] by Allah Permission with all Decrees, (all that night), there is peace (and goodness from Allah to His believing slaves) until the appearance of dawn"},
-		 { "Sl_No": "27" ,    "Date": "Mar 17, 2026" , 		"Day": "Tuesday"	, 	  	    	"Suhoor": "04:29"  ,   "Iftar1": "05:47" ,	"Iftar": "17:47" ,   "Duration": "" ,   "pic":"ramadan-day-27.png"	,	    "hadith":"The Prophet (pbuh) said:In every day and every night, during the month of Ramadan, there are people to whom Allah grants freedom from the Fire, and there is for every Muslim a supplication which he can make and will be granted."},
-		 { "Sl_No": "28" ,    "Date": "Mar 18, 2026" , 		"Day": "Wednesday"	,  	  	    	"Suhoor": "04:28"  ,   "Iftar1": "05:47" ,	"Iftar": "17:47" ,   "Duration": "" ,   "pic":"ramadan-day-28.png"	,	    "hadith":"Prophet (PBUH), who said: Allah (mighty and sublime be He) said: Spend (on charity), O son of Adam, and I shall spend on you."},
-		 { "Sl_No": "29" ,    "Date": "Mar 19, 2026" , 		"Day": "Thursday", 		  			"Suhoor": "04:27"  ,   "Iftar1": "05:48" ,	"Iftar": "17:48" ,   "Duration": "" ,   "pic":"ramadan-day-29.png"	,	    "hadith":"Prophet (peace and blessings be upon him) said,Whosoever fasts in Ramadan and then follows it with fasting six days of Shawwal, it is as if he fasts forever. (Muslim)"},
-		 { "Sl_No": "30" ,    "Date": "Mar 20, 2026" , 		"Day": "Friday",  	   	 			"Suhoor": "04:26"  ,   "Iftar1": "05:48" ,	"Iftar": "17:48" ,   "Duration": "" ,   "pic":"ramadan-day-30.png"	,		"hadith":"Anas bin Maalik (r.a) said: The Messenger of Allah (pbuh) came to Madinah and the people had two days when they would play and have fun. He said, What are these two days? They said,We used to play and have fun on these days during the Jaahiliyyah(Days of Ignorance).The Messenger of Allah (pbuh) said,Allah has given you something better than them, the day of (Eid) Adhaa and the day of (Eid) Fitr."}
+		 { "Sl_No": "27" ,    "Date": "Mar 17, 2026" , 			"Day": "Tuesday"	, 	  	    	"Suhoor": "04:29"  ,   "Iftar1": "05:47" ,	"Iftar": "17:47" ,   "Duration": "" ,   "pic":"ramadan-day-27.png"	,	    "hadith":"The Prophet (pbuh) said:In every day and every night, during the month of Ramadan, there are people to whom Allah grants freedom from the Fire, and there is for every Muslim a supplication which he can make and will be granted."},
+		 { "Sl_No": "28" ,    "Date": "Mar 18, 2026" , 			"Day": "Wednesday"	,  	  	    	"Suhoor": "04:28"  ,   "Iftar1": "05:47" ,	"Iftar": "17:47" ,   "Duration": "" ,   "pic":"ramadan-day-28.png"	,	    "hadith":"Prophet (PBUH), who said: Allah (mighty and sublime be He) said: Spend (on charity), O son of Adam, and I shall spend on you."},
+		 { "Sl_No": "29" ,    "Date": "Mar 19, 2026" , 			"Day": "Thursday", 		  			"Suhoor": "04:27"  ,   "Iftar1": "05:48" ,	"Iftar": "17:48" ,   "Duration": "" ,   "pic":"ramadan-day-29.png"	,	    "hadith":"Prophet (peace and blessings be upon him) said,Whosoever fasts in Ramadan and then follows it with fasting six days of Shawwal, it is as if he fasts forever. (Muslim)"},
+		 { "Sl_No": "30" ,    "Date": "Mar 20, 2026" , 			"Day": "Friday",  	   	 			"Suhoor": "04:26"  ,   "Iftar1": "05:48" ,	"Iftar": "17:48" ,   "Duration": "" ,   "pic":"ramadan-day-30.png"	,		"hadith":"Anas bin Maalik (r.a) said: The Messenger of Allah (pbuh) came to Madinah and the people had two days when they would play and have fun. He said, What are these two days? They said,We used to play and have fun on these days during the Jaahiliyyah(Days of Ignorance).The Messenger of Allah (pbuh) said,Allah has given you something better than them, the day of (Eid) Adhaa and the day of (Eid) Fitr."}
 ];
 
 
-/* ===== INIT ===== */
-const today = new Date().toDateString();
-let todayData = null;
+const container=document.getElementById("container");
 
-data.forEach(d=>{
-    if(new Date(d.Date).toDateString()===today){
-        todayData = d;
-    }
-});
-
-/* ===== TABLE ===== */
-const tbody=document.getElementById("timetableBody");
-data.forEach(d=>{
-    const tr=document.createElement("tr");
-    if(new Date(d.Date).toDateString()===today){
-        tr.classList.add("highlight");
-    }
-    tr.innerHTML=`
-    <td>${d.Sl_No}</td>
-    <td>${d.Date}</td>
-    <td>${d.Suhoor}</td>
-    <td>${d.Iftar}</td>
-    <td>${calculateDuration(d.Date,d.Suhoor,d.Iftar)}</td>
-    `;
-    tbody.appendChild(tr);
-});
-
-function calculateDuration(date,start,end){
-    const s=new Date(date+" "+start);
-    const e=new Date(date+" "+end);
-    const diff=e-s;
-    const h=Math.floor(diff/3600000);
-    const m=Math.floor((diff%3600000)/60000);
-    return h+"h "+('0'+m).slice(-2)+"m";
+/* STAR GENERATOR */
+for(let i=0;i<40;i++){
+const star=document.createElement("div");
+star.className="star";
+star.style.top=Math.random()*100+"%";
+star.style.left=Math.random()*100+"%";
+star.style.animationDuration=(2+Math.random()*3)+"s";
+container.appendChild(star);
 }
 
-/* ===== COUNTDOWN + ARC (SUHOOR → IFTAR ONLY) ===== */
+const todayStr=new Date().toDateString();
+let todayData=null;
+const tbody=document.getElementById("timetableBody");
+
+data.forEach(d=>{
+const tr=document.createElement("tr");
+if(new Date(d.Date).toDateString()===todayStr){
+tr.classList.add("highlight");
+todayData=d;
+}
+tr.innerHTML=`
+<td>${d.Sl_No}</td>
+<td>${d.Date}</td>
+<td>${d.Suhoor}</td>
+<td>${d.Iftar1}</td>
+`;
+tbody.appendChild(tr);
+});
 
 if(todayData){
+document.getElementById("dayTitle").innerText=
+"Day "+todayData.Sl_No+" - Kolkata";
 
-document.getElementById("dayNumber").innerText="Day "+todayData.Sl_No;
-document.getElementById("islamicDate").innerText=
-todayData.Sl_No+" Ramadan 1447 AH";
-document.getElementById("todaySuhoor").innerText=
-"Suhoor ends: "+todayData.Suhoor;
-document.getElementById("todayIftar").innerText=
-"Iftar at: "+todayData.Iftar;
+/* Ramadan progress bar */
+const percent=(todayData.Sl_No/30)*100;
+document.getElementById("ramadanProgress").style.width=percent+"%";
 
-startCountdown(todayData);
+start(todayData);
 }
 
-function startCountdown(d){
+function format12(time24){
+const [h,m]=time24.split(":");
+let hour=parseInt(h);
+const ampm=hour>=12?"PM":"AM";
+hour=hour%12;if(hour===0)hour=12;
+return hour+":"+m+" "+ampm;
+}
+
+function start(d){
 
 const arc=document.getElementById("progressArc");
-const moon=document.getElementById("moon");
-const length=arc.getTotalLength();
-arc.style.strokeDasharray=length;
+const icon=document.getElementById("movingIcon");
+const dot=document.getElementById("statusDot");
+const len=arc.getTotalLength();
+arc.style.strokeDasharray=len;
+
+let azanPlayed=false;
+let notified=false;
+
+if(Notification.permission!=="granted"){
+Notification.requestPermission();
+}
 
 function update(){
 
 const now=new Date();
 document.getElementById("currentTime").innerText=
-now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
 
 const suhoor=new Date(d.Date+" "+d.Suhoor);
 const iftar=new Date(d.Date+" "+d.Iftar);
 
-let target;
-if(now<iftar){
-    target=iftar;
-    document.getElementById("nextLabel").innerText="NEXT IFTAR IN";
+document.getElementById("suhoorDisplay").innerText=
+format12(d.Suhoor);
+document.getElementById("iftarDisplay").innerText=
+format12(d.Iftar1);
+
+let target,progress,total,elapsed;
+
+if(now>=suhoor && now<=iftar){
+
+document.getElementById("nextLabel").innerText="FASTING PROGRESS";
+document.getElementById("fastingStatus").innerText="Fasting";
+dot.classList.add("fasting");
+
+target=iftar;
+total=iftar-suhoor;
+elapsed=now-suhoor;
+progress=elapsed/total;
+icon.className="icon sun";
+
 }else{
-    target=new Date(suhoor);
-    target.setDate(target.getDate()+1);
-    document.getElementById("nextLabel").innerText="NEXT SUHOOR IN";
+
+document.getElementById("nextLabel").innerText="NEXT SUHOOR IN";
+document.getElementById("fastingStatus").innerText="Not Fasting";
+dot.classList.remove("fasting");
+
+target=(now>iftar)?new Date(suhoor.setDate(suhoor.getDate()+1)):suhoor;
+total=target-now;
+elapsed=target-now;
+progress=1-(elapsed/total);
+icon.className="icon moon";
 }
 
 const diff=target-now;
@@ -272,24 +453,34 @@ const m=Math.floor((diff%3600000)/60000);
 const s=Math.floor((diff%60000)/1000);
 
 document.getElementById("countdownTime").innerText=
-('0'+h).slice(-2)+":"+
-('0'+m).slice(-2)+":"+
-('0'+s).slice(-2);
+('0'+h).slice(-2)+":"+('0'+m).slice(-2)+":"+('0'+s).slice(-2);
 
-/* ARC ONLY BETWEEN SUHOOR → IFTAR */
+if(progress<0)progress=0;if(progress>1)progress=1;
+arc.style.strokeDashoffset=len-(progress*len);
+icon.style.left=20+(progress*240)+"px";
+icon.style.top="110px";
 
-if(now>=suhoor && now<=iftar){
-    const total=iftar-suhoor;
-    const elapsed=now-suhoor;
-    const progress=elapsed/total;
-    arc.style.strokeDashoffset=length-(progress*length);
+/* Sunset fade */
+if(now>new Date(iftar-1800000) && now<iftar){
+document.body.style.background="linear-gradient(to bottom,#ff9966,#ff5e62)";
+}
 
-    /* MOVE MOON */
-    const pos=progress*260;
-    moon.style.left=20+pos+"px";
-}else{
-    arc.style.strokeDashoffset=length;
-    moon.style.left="20px";
+/* AZAN + VIBRATION */
+if(!azanPlayed && now>=iftar){
+document.getElementById("azanAudio").play();
+if(navigator.vibrate){
+navigator.vibrate([300,200,300]);
+}
+azanPlayed=true;
+}
+
+/* SUHOOR NOTIFICATION */
+const notifyTime=new Date(suhoor.getTime()-10*60000);
+if(!notified && now>=notifyTime && now<suhoor){
+if(Notification.permission==="granted"){
+new Notification("Suhoor Reminder","Suhoor ends at "+d.Suhoor);
+}
+notified=true;
 }
 
 }
