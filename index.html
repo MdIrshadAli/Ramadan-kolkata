@@ -1,8 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ramadan Timetable 2026 Kolkata</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    color:white;
+    text-align:center;
+}
+
+h1{
+    margin-top:20px;
+    font-weight:300;
+}
+
+/* ===== COUNTDOWN SECTION ===== */
+
+.countdown-container {
+    margin-top: 30px;
+}
+
+.location {
+    font-size:18px;
+    opacity:0.8;
+}
+
+.current-time {
+    font-size:38px;
+    margin-top:10px;
+}
+
+.next-label {
+    margin-top:15px;
+    font-size:14px;
+    letter-spacing:3px;
+    opacity:0.8;
+}
+
+.circle-wrapper {
+    position: relative;
+    width:260px;
+    height:260px;
+    margin:20px auto;
+}
+
+.progress-ring-circle {
+    stroke-dasharray: 691;
+    stroke-dashoffset: 0;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 1s linear;
+}
+
+.countdown-time {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-size:28px;
+}
+
+/* ===== TODAY INFO ===== */
+
+.today-info{
+    margin-top:20px;
+    font-size:18px;
+    line-height:30px;
+}
+
+/* ===== TABLE ===== */
+
+table {
+    width:95%;
+    margin:40px auto;
+    border-collapse: collapse;
+    background:white;
+    color:black;
+}
+
+th, td {
+    padding:10px;
+    border:1px solid #ccc;
+}
+
+th {
+    background:#2c5364;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+.highlight{
+    background:#333 !important;
+    color:yellow !important;
+}
+
+/* ===== HADITH ===== */
+
+.hadith-section{
+    margin:40px 20px;
+    font-size:20px;
+    line-height:30px;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    margin:40px 0;
+    opacity:0.7;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Ramadan Timetable 2026</h1>
+
+<div class="countdown-container">
+    <div class="location">Kolkata, West Bengal</div>
+    <div class="current-time" id="currentTime"></div>
+    <div class="next-label" id="nextLabel"></div>
+
+    <div class="circle-wrapper">
+        <svg width="260" height="260">
+            <circle stroke="#ffffff20" stroke-width="8" fill="transparent" r="110" cx="130" cy="130"/>
+            <circle class="progress-ring-circle" stroke="#ffffff" stroke-width="8" fill="transparent" r="110" cx="130" cy="130"/>
+        </svg>
+
+        <div class="countdown-time" id="countdownTime">
+            00:00:00
+        </div>
+    </div>
+</div>
+
+<div class="today-info">
+    <div id="todayIslamic"></div>
+    <div id="todayDate"></div>
+    <div id="todaySuhoor"></div>
+    <div id="todayIftar"></div>
+</div>
+
+<div class="hadith-section">
+    <h2>Hadith of the Day</h2>
+    <div id="hadithText"></div>
+</div>
+
+<h2>Full Timetable</h2>
+
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Date</th>
+<th>Suhoor</th>
+<th>Iftar</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody id="timetableBody"></tbody>
+</table>
+
+<footer>
+Duaon ka Taalib – Md Irshad Ali  
+</footer>
+
 <script>
 
-/* ===== RAMADAN DATA (PUT YOUR FULL 30 DAYS ARRAY HERE EXACTLY AS BEFORE) ===== */
+/* ===== RAMADAN DATA ===== */
+/* (Same data you provided, shortened example here) */
 
-const data =  [
+const data = [
 		 { "Sl_No": "1"  ,    "Date": "Feb 19, 2026" ,			"Day": "Thursday"		,  	  	   	"Suhoor": "04:51"  ,   "Iftar1": "05:36" ,	"Iftar": "17:36" ,   "Duration": "" ,   "pic":"ramadan-day-1.jpg"	,		"hadith":"The Messenger of Allah(pbuh), said, On the first night of the month of Ramadan, the devils are chained, the jinn are restrained, and the gates of Hellfire are closed and none of its gates are opened. The gates of Paradise are opened and none of its gates are closed. "},
 		 { "Sl_No": "2"  ,    "Date": "Feb 20, 2026" ,			"Day": "Friday"			, 	  	   	"Suhoor": "04:50"  ,   "Iftar1": "05:36" ,	"Iftar": "17:36" ,   "Duration": "" ,   "pic":"ramadan-day-2.jpg"	,		"hadith":"Imam Jafar Sadiq (as) has said, Your fast day should not be like other ordinary days. When you fast, all your sense - eyes, ears, tongue, hands and feet - must fast with you"},
 		 { "Sl_No": "3"  ,    "Date": "Feb 21, 2026" ,			"Day": "Saturday"	,      	   		"Suhoor": "04:49"  ,   "Iftar1": "05:37" ,	"Iftar": "17:37" ,   "Duration": "" ,   "pic":"ramadan-day-3.jpg"	,		"hadith":"Ali said: It is incumbent upon you to seek forgiveness and supplicate excessively in the month of Ramazan. As for the supplication, by means of it the calamities are warded off from you, and as for the seeking of forgiveness, it erases away your sins."},
@@ -35,82 +209,71 @@ const data =  [
 		 { "Sl_No": "30" ,    "Date": "Mar 20, 2026" , 		"Day": "Friday",  	   	 			"Suhoor": "04:26"  ,   "Iftar1": "05:48" ,	"Iftar": "17:48" ,   "Duration": "" ,   "pic":"ramadan-day-30.png"	,		"hadith":"Anas bin Maalik (r.a) said: The Messenger of Allah (pbuh) came to Madinah and the people had two days when they would play and have fun. He said, What are these two days? They said,We used to play and have fun on these days during the Jaahiliyyah(Days of Ignorance).The Messenger of Allah (pbuh) said,Allah has given you something better than them, the day of (Eid) Adhaa and the day of (Eid) Fitr."}
 ];
 
+/* ===== UTILITIES ===== */
 
-/* ===== DATE FIX (IMPORTANT) ===== */
-
-function formatDateToMatch(d){
-    const options = { month: 'short', day: 'numeric', year: 'numeric' };
-    return new Date(d).toLocaleDateString('en-US', options);
+function calculateDuration(date,start,end){
+    const s = new Date(date+" "+start);
+    const e = new Date(date+" "+end);
+    const diff = e - s;
+    const h = Math.floor(diff/(1000*60*60));
+    const m = Math.floor((diff%(1000*60*60))/(1000*60));
+    return h+"h "+('0'+m).slice(-2)+"m";
 }
 
-const today = new Date();
-const todayFormatted = formatDateToMatch(today);
+/* ===== INIT PAGE ===== */
 
+const today = new Date();
+const todayString = today.toDateString();
+
+let todayData = null;
+
+data.forEach(d=>{
+    if(new Date(d.Date).toDateString()===todayString){
+        todayData = d;
+    }
+});
 
 /* ===== TABLE RENDER ===== */
 
 const tbody = document.getElementById("timetableBody");
-let todayData = null;
 
-data.forEach(d => {
+data.forEach(d=>{
+    const tr=document.createElement("tr");
 
-    const tr = document.createElement("tr");
-
-    if(d.Date === todayFormatted){
+    if(new Date(d.Date).toDateString()===todayString){
         tr.classList.add("highlight");
-        todayData = d;
     }
 
-    const duration = calculateDuration(d.Date, d.Suhoor, d.Iftar);
-
-    tr.innerHTML = `
-        <td>${d.Sl_No}</td>
-        <td>${d.Date}</td>
-        <td>${d.Suhoor}</td>
-        <td>${d.Iftar}</td>
-        <td>${duration}</td>
+    tr.innerHTML=`
+    <td>${d.Sl_No}</td>
+    <td>${d.Date}</td>
+    <td>${d.Suhoor}</td>
+    <td>${d.Iftar}</td>
+    <td>${calculateDuration(d.Date,d.Suhoor,d.Iftar)}</td>
     `;
-
     tbody.appendChild(tr);
 });
 
-
-/* ===== DURATION ===== */
-
-function calculateDuration(date,start,end){
-    const s = new Date(date + " " + start);
-    const e = new Date(date + " " + end);
-    const diff = e - s;
-
-    const h = Math.floor(diff/(1000*60*60));
-    const m = Math.floor((diff%(1000*60*60))/(1000*60));
-
-    return h + "h " + ('0'+m).slice(-2) + "m";
-}
-
-
-/* ===== TODAY INFO + COUNTDOWN ===== */
+/* ===== TODAY INFO ===== */
 
 if(todayData){
+    document.getElementById("todayIslamic").innerText=
+        "Today: "+todayData.Sl_No+" Ramadan 1447 AH";
 
-    document.getElementById("todayIslamic").innerText =
-        "Today: " + todayData.Sl_No + " Ramadan 1447 AH";
+    document.getElementById("todayDate").innerText=
+        "Date: "+todayData.Date;
 
-    document.getElementById("todayDate").innerText =
-        "Date: " + todayData.Date;
+    document.getElementById("todaySuhoor").innerText=
+        "Suhoor: "+todayData.Suhoor;
 
-    document.getElementById("todaySuhoor").innerText =
-        "Suhoor: " + todayData.Suhoor;
+    document.getElementById("todayIftar").innerText=
+        "Iftar: "+todayData.Iftar;
 
-    document.getElementById("todayIftar").innerText =
-        "Iftar: " + todayData.Iftar;
-
-    document.getElementById("hadithText").innerText =
+    document.getElementById("hadithText").innerText=
         todayData.hadith;
 
     startCountdown(todayData);
 }
-
 
 /* ===== COUNTDOWN ===== */
 
@@ -122,50 +285,45 @@ function startCountdown(d){
     let target;
     let label;
 
-    if(new Date() < iftar){
-        target = iftar;
-        label = "Next Iftar In";
-    } else {
-        target = new Date(suhoor);
+    if(new Date()<iftar){
+        target=iftar;
+        label="Next Iftar In";
+    }else{
+        target=new Date(suhoor);
         target.setDate(target.getDate()+1);
-        label = "Next Suhoor In";
+        label="Next Suhoor In";
     }
 
-    document.getElementById("nextLabel").innerText = label;
+    document.getElementById("nextLabel").innerText=label;
 
-    const circle = document.querySelector(".progress-ring-circle");
-    const radius = 110;
-    const circumference = 2 * Math.PI * radius;
-    circle.style.strokeDasharray = circumference;
+    const circle=document.querySelector(".progress-ring-circle");
+    const radius=110;
+    const circumference=2*Math.PI*radius;
+    circle.style.strokeDasharray=circumference;
 
     function update(){
+        const now=new Date();
+        const diff=target-now;
 
-        const now = new Date();
-        const diff = target - now;
+        if(diff<=0){ location.reload(); }
 
-        if(diff <= 0){
-            location.reload();
-        }
+        const h=Math.floor(diff/(1000*60*60));
+        const m=Math.floor((diff%(1000*60*60))/(1000*60));
+        const s=Math.floor((diff%(1000*60))/1000);
 
-        const h = Math.floor(diff/(1000*60*60));
-        const m = Math.floor((diff%(1000*60*60))/(1000*60));
-        const s = Math.floor((diff%(1000*60))/1000);
-
-        document.getElementById("countdownTime").innerText =
+        document.getElementById("countdownTime").innerText=
             ('0'+h).slice(-2)+":"+
             ('0'+m).slice(-2)+":"+
             ('0'+s).slice(-2);
 
-        document.getElementById("currentTime").innerText =
+        document.getElementById("currentTime").innerText=
             now.toLocaleTimeString();
 
-        const total = target - new Date(d.Date+" 00:00");
-        const elapsed = now - new Date(d.Date+" 00:00");
-
-        const progress = elapsed / total;
-
-        circle.style.strokeDashoffset =
-            circumference - (progress * circumference);
+        const total=target - new Date(d.Date+" 00:00");
+        const elapsed=now - new Date(d.Date+" 00:00");
+        const progress=elapsed/total;
+        circle.style.strokeDashoffset=
+            circumference-(progress*circumference);
     }
 
     setInterval(update,1000);
@@ -173,3 +331,6 @@ function startCountdown(d){
 }
 
 </script>
+
+</body>
+</html>
